@@ -1,9 +1,22 @@
-function App() {
 
+import {createTheme, ThemeProvider} from "@mui/material";
+import {RouterProvider} from "./Router.tsx";
+import AppScaffold from "./components/AppScaffold.tsx";
+
+
+const theme = createTheme({
+    palette: {
+        mode: "dark",
+    }
+})
+
+function App() {
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
+    <ThemeProvider theme={theme}>
+       <AppScaffold>
+           <RouterProvider/>
+       </AppScaffold>
+    </ThemeProvider>
   )
 }
 
