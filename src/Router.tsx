@@ -6,6 +6,7 @@ import Heaters from "./pages/Heaters.tsx";
 import Boilers from "./pages/Boilers.tsx";
 import Turbines from "./pages/Turbines.tsx";
 import Generators from "./pages/Generators.tsx";
+import Chimneys from "./pages/Chimneys.tsx";
 
 type AppRouteBase = RouteObject;
 
@@ -62,7 +63,7 @@ export const routes: AppRoute[] = [
     },
     {
         path: "/chimneys",
-        element: <h1>Chimneys</h1>,
+        element: <Chimneys/>,
         icon: <Factory/>,
         label: "Chimneys",
         category: "Building Info",
