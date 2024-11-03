@@ -5,6 +5,7 @@ import {TbChartBubbleFilled} from "react-icons/tb";
 import Heaters from "./pages/Heaters.tsx";
 import Boilers from "./pages/Boilers.tsx";
 import Turbines from "./pages/Turbines.tsx";
+import Generators from "./pages/Generators.tsx";
 
 type AppRouteBase = RouteObject;
 
@@ -54,7 +55,7 @@ export const routes: AppRoute[] = [
     },
     {
         path: "/generators",
-        element: <h1>Generators</h1>,
+        element: <Generators/>,
         icon: <Bolt/>,
         label: "Generators",
         category: "Building Info",
