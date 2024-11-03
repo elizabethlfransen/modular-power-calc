@@ -1,6 +1,6 @@
 import {Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography} from "@mui/material";
-import {BasicHeaterFuelData, HeaterData, HEATERS, NuclearHeaterFuelData} from "../config/heaters.ts";
 import {useEffect} from "react";
+import {BasicHeaterFuelData, HeaterData, NuclearHeaterFuelData, useAppData} from "../components/DataProvider.tsx";
 
 function BasicHeaterFuelRow(dataRow: BasicHeaterFuelData) {
     return (<TableRow>
@@ -87,12 +87,14 @@ type HeaterDataDisplayProps = {
 }
 
 function HeaterDataDisplay({id, heaterData: {name, fuel, type, maxHeatProduction}}: HeaterDataDisplayProps) {
+
+
     return (
         <Box id={id} sx={{
             py: 2
         }}>
             <Typography variant="h3">{name}</Typography>
-            <Paper  sx={{
+            <Paper sx={{
                 display: "inline-block",
                 mb: 2,
             }}>
@@ -127,12 +129,14 @@ export default function Heaters() {
     useEffect(() => {
         document.title = "Heaters";
     }, []);
+    const {heaters} = useAppData()
+
     return (
         <Box>
             <Typography variant="h2">Heaters</Typography>
             <Box>
                 {
-                    Object.entries(HEATERS)
+                    Object.entries(heaters)
                         .map(([key, heaterData]) => <HeaterDataDisplay id={key} key={key} heaterData={heaterData}/>)
                 }
             </Box>

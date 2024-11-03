@@ -1,6 +1,6 @@
 import {Box, Paper, Table, TableBody, TableCell, TableHead, TableRow, Typography} from "@mui/material";
-import {BoilerData, BoilerIOData, BOILERS} from "../config/boilers.ts";
 import {useEffect} from "react";
+import {BoilerData, BoilerIOData, useAppData} from "../components/DataProvider.tsx";
 
 function BoilerDataRow({steamOut, temperature, waterIn}: BoilerIOData) {
     return (<TableRow>
@@ -37,10 +37,13 @@ export default function Boilers() {
         document.title = "Boilers";
     }, []);
 
+    const {boilers} = useAppData()
+
+
     return (<Box>
         <Typography variant="h2">Boilers</Typography>
         {
-            Object.entries(BOILERS).map(([key, boilerData]) => (
+            Object.entries(boilers).map(([key, boilerData]) => (
                 <BoilerDataDisplay key={key} id={key} boilerData={boilerData}/>))
         }
     </Box>)

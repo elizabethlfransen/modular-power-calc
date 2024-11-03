@@ -1,8 +1,11 @@
 import {useEffect} from "react";
 import {Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography} from "@mui/material";
-import {GENERATORS} from "../config/generators.ts";
+import {useAppData} from "../components/DataProvider.tsx";
 
 export default function Generators() {
+
+    const {generators} = useAppData();
+
     useEffect(() => {
         document.title = "Generators";
     }, []);
@@ -22,18 +25,18 @@ export default function Generators() {
                     <TableBody>
                         <TableRow>
                             <TableCell variant={'head'}>LV</TableCell>
-                            <TableCell>{GENERATORS.lv.maxPowerOutput}</TableCell>
-                            <TableCell>{GENERATORS.lv.requiredRPM}</TableCell>
+                            <TableCell>{generators.lv.maxPowerOutput}</TableCell>
+                            <TableCell>{generators.lv.requiredRPM}</TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell variant={'head'}>MV</TableCell>
-                            <TableCell>{GENERATORS.mv.maxPowerOutput}</TableCell>
-                            <TableCell>{GENERATORS.mv.requiredRPM}</TableCell>
+                            <TableCell>{generators.mv.maxPowerOutput}</TableCell>
+                            <TableCell>{generators.mv.requiredRPM}</TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell variant={'head'}>HV</TableCell>
-                            <TableCell>{GENERATORS.hv.maxPowerOutput}</TableCell>
-                            <TableCell>{GENERATORS.hv.requiredRPM}</TableCell>
+                            <TableCell>{generators.hv.maxPowerOutput}</TableCell>
+                            <TableCell>{generators.hv.requiredRPM}</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

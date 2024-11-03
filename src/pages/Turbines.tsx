@@ -1,8 +1,9 @@
 import {useEffect} from "react";
 import {Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography} from "@mui/material";
-import {TURBINES} from "../config/turbines.ts";
+import {useAppData} from "../components/DataProvider.tsx";
 
 export default function Turbines() {
+    const {turbines} = useAppData()
     useEffect(() => {
         document.title = "Turbines";
     }, []);
@@ -21,14 +22,14 @@ export default function Turbines() {
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell variant={'head'}>{TURBINES.mk1.name}</TableCell>
-                            <TableCell>{TURBINES.mk1.steamConsumption}</TableCell>
-                            <TableCell>{TURBINES.mk1.steamProduction}</TableCell>
+                            <TableCell variant={'head'}>{turbines.mk1.name}</TableCell>
+                            <TableCell>{turbines.mk1.steamConsumption}</TableCell>
+                            <TableCell>{turbines.mk1.steamProduction}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell variant={'head'}>{TURBINES.mk2.name}</TableCell>
-                            <TableCell>{TURBINES.mk2.steamConsumption}</TableCell>
-                            <TableCell>{TURBINES.mk2.steamProduction}</TableCell>
+                            <TableCell variant={'head'}>{turbines.mk2.name}</TableCell>
+                            <TableCell>{turbines.mk2.steamConsumption}</TableCell>
+                            <TableCell>{turbines.mk2.steamProduction}</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>

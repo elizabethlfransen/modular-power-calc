@@ -1,8 +1,10 @@
 import {useEffect} from "react";
 import {Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography} from "@mui/material";
-import {CHIMNEYS} from "../config/chimneys.ts";
+import {useAppData} from "../components/DataProvider.tsx";
 
 export default function Chimneys() {
+    const {chimneys} = useAppData()
+
     useEffect(() => {
         document.title = "Chimneys";
     }, []);
@@ -21,14 +23,14 @@ export default function Chimneys() {
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell variant={'head'}>{CHIMNEYS.co2.name}</TableCell>
-                            <TableCell>{CHIMNEYS.co2.fluid}</TableCell>
-                            <TableCell>{CHIMNEYS.co2.consumptionRate}</TableCell>
+                            <TableCell variant={'head'}>{chimneys.co2.name}</TableCell>
+                            <TableCell>{chimneys.co2.fluid}</TableCell>
+                            <TableCell>{chimneys.co2.consumptionRate}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell variant={'head'}>{CHIMNEYS.steam.name}</TableCell>
-                            <TableCell>{CHIMNEYS.steam.fluid}</TableCell>
-                            <TableCell>{CHIMNEYS.steam.consumptionRate}</TableCell>
+                            <TableCell variant={'head'}>{chimneys.steam.name}</TableCell>
+                            <TableCell>{chimneys.steam.fluid}</TableCell>
+                            <TableCell>{chimneys.steam.consumptionRate}</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
