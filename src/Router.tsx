@@ -1,4 +1,9 @@
-import {createBrowserRouter, RouteObject, RouterProvider as ReactRouterProvider} from "react-router-dom";
+import {
+    BrowserRouterProps,
+    createBrowserRouter,
+    RouteObject,
+    RouterProvider as ReactRouterProvider
+} from "react-router-dom";
 import {ReactNode} from "react";
 import {Bolt, Calculate, Factory, LocalFireDepartment, WindPower} from "@mui/icons-material";
 import {TbChartBubbleFilled} from "react-icons/tb";
@@ -74,4 +79,6 @@ export const router = createBrowserRouter(routes, {
     basename: import.meta.env.BASE_URL,
 });
 
-export const RouterProvider = () => (<ReactRouterProvider router={router}/>);
+
+export const RouterProvider = (props: Omit<BrowserRouterProps, 'router'>) => (
+    <ReactRouterProvider router={router} {...props} />);

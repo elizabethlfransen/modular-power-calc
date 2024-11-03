@@ -13,13 +13,14 @@ import {
 } from "@mui/material";
 import {AppRoute, routeCategories, routes, VisibleAppRoute} from "../Router.tsx";
 import {ReactNode} from "react";
+import {Link, Outlet} from "react-router-dom";
 
 const drawerWidth = 360;
 
 function AppListItem(route: VisibleAppRoute) {
     return (
         <ListItem disablePadding>
-            <ListItemButton component={"a"} href={route.path}>
+            <ListItemButton component={Link} to={route.path!}>
                 <ListItemIcon>
                     {route.icon}
                 </ListItemIcon>
@@ -57,7 +58,7 @@ const categorizedRoutes = routeCategories.map(category => ({
     routes: routes.filter(route => route.category === category),
 }));
 
-export default function AppScaffold({children}: AppScaffoldProps) {
+export default function AppScaffold() {
 
     return (
         <Box sx={{display: 'flex'}}>
@@ -91,7 +92,7 @@ export default function AppScaffold({children}: AppScaffoldProps) {
             <Box sx={{flexGrow: 1, p: 3}}>
                 <Toolbar/>
                 <Box component="main">
-                    {children}
+                    <Outlet/>
                 </Box>
                 <Box component="footer">
                     <Typography variant="caption">

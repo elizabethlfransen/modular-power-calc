@@ -13,9 +13,9 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-       <AppScaffold>
-           <RouterProvider/>
-       </AppScaffold>
+        <RouterProvider>
+            <AppScaffold/>
+        </RouterProvider>
     </ThemeProvider>
   )
 }
