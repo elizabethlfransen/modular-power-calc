@@ -2,6 +2,7 @@ import {createBrowserRouter, RouteObject, RouterProvider as ReactRouterProvider}
 import {ReactNode} from "react";
 import {Bolt, Calculate, Factory, LocalFireDepartment, WindPower} from "@mui/icons-material";
 import {TbChartBubbleFilled} from "react-icons/tb";
+import Heaters from "./pages/Heaters.tsx";
 
 type AppRouteBase = RouteObject;
 
@@ -30,7 +31,7 @@ export const routes: AppRoute[] = [
     },
     {
         path: "/heaters",
-        element: <h1>Heaters</h1>,
+        element: <Heaters/>,
         icon: <LocalFireDepartment/>,
         label: "Heaters",
         category: "Building Info",
