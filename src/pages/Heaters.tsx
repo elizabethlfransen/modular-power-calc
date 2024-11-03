@@ -1,5 +1,6 @@
 import {Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography} from "@mui/material";
 import {BasicHeaterFuelData, HeaterData, HEATERS, NuclearHeaterFuelData} from "../config/heaters.ts";
+import {useEffect} from "react";
 
 function BasicHeaterFuelRow(dataRow: BasicHeaterFuelData) {
     return (<TableRow>
@@ -123,6 +124,9 @@ function HeaterDataDisplay({id, heaterData: {name, fuel, type, maxHeatProduction
 }
 
 export default function Heaters() {
+    useEffect(() => {
+        document.title = "Heaters";
+    }, []);
     return (
         <Box>
             <Typography variant="h2">Heaters</Typography>
