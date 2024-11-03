@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+      - name: Install Dependencies
+        run: yarn install --immutable
+      - name: Build Project
+        run: yarn build
+      - name: Upload Build
+        id: upload
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.upload.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write      # to deploy to Pages
+      id-token: write   # to verify the deployment originates from an appropriate source
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
