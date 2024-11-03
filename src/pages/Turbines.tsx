@@ -14,25 +14,20 @@ export default function Turbines() {
                 <Table sx={{tableLayout: "fixed"}}>
                     <TableHead>
                         <TableRow>
-                            <TableCell width="auto"></TableCell>
-                            <TableCell>Mk. 1</TableCell>
-                            <TableCell>Mk. 2</TableCell>
+                            <TableCell>Tier</TableCell>
+                            <TableCell>Steam Consumption (High Pressure) (m³)</TableCell>
+                            <TableCell>Steam Production (Low Pressure) (m³)</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell width="auto" variant={'head'}>Maximum RPM</TableCell>
-                            <TableCell>{TURBINES.mk1.maxRpm}</TableCell>
-                            <TableCell>{TURBINES.mk2.maxRpm}</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell width="auto" variant={'head'}>Steam Consumption (High Pressure) (m³)</TableCell>
+                            <TableCell variant={'head'}>{TURBINES.mk1.name}</TableCell>
                             <TableCell>{TURBINES.mk1.steamConsumption}</TableCell>
-                            <TableCell>{TURBINES.mk2.steamConsumption}</TableCell>
+                            <TableCell>{TURBINES.mk1.steamProduction}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell width="auto" variant={'head'}>Steam Production (Low Pressure) (m³)</TableCell>
-                            <TableCell>{TURBINES.mk1.steamProduction}</TableCell>
+                            <TableCell variant={'head'}>{TURBINES.mk2.name}</TableCell>
+                            <TableCell>{TURBINES.mk2.steamConsumption}</TableCell>
                             <TableCell>{TURBINES.mk2.steamProduction}</TableCell>
                         </TableRow>
                     </TableBody>
