@@ -85,12 +85,27 @@ type HeaterDataDisplayProps = {
     heaterData: HeaterData
 }
 
-function HeaterDataDisplay({id, heaterData: {name, fuel, type}}: HeaterDataDisplayProps) {
+function HeaterDataDisplay({id, heaterData: {name, fuel, type, maxHeatProduction}}: HeaterDataDisplayProps) {
     return (
         <Box id={id} sx={{
             py: 2
         }}>
             <Typography variant="h3">{name}</Typography>
+            <Paper  sx={{
+                display: "inline-block",
+                mb: 2,
+            }}>
+                <Table sx={{
+                    width: "auto"
+                }}>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>Max Heat</TableCell>
+                            <TableCell>{maxHeatProduction}</TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </Paper>
             <Paper>
                 <TableContainer>
                     <Table>
