@@ -70,6 +70,8 @@ export const routes: AppRoute[] = [
     },
 ];
 
-export const router = createBrowserRouter(routes);
+export const router = createBrowserRouter(routes, {
+    basename: import.meta.env.BASE_URL,
+});
 
 export const RouterProvider = () => (<ReactRouterProvider router={router}/>);
