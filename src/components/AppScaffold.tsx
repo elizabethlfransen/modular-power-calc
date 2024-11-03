@@ -7,11 +7,12 @@ import {
     ListItem,
     ListItemButton,
     ListItemIcon,
-    ListItemText, ListSubheader,
+    ListItemText,
+    ListSubheader,
     Toolbar,
     Typography
 } from "@mui/material";
-import {AppRoute, routeCategories, routes, VisibleAppRoute} from "../Router.tsx";
+import {AppRoute, categorizedRoutes, VisibleAppRoute} from "../Router.tsx";
 import {ReactNode} from "react";
 import {Link, Outlet} from "react-router-dom";
 
@@ -53,10 +54,6 @@ function RouteSection({title, routes}: RouteSectionProps) {
 
 const UNDEFINED_KEY = "UNDEFINED";
 
-const categorizedRoutes = routeCategories.map(category => ({
-    title: category,
-    routes: routes.filter(route => route.category === category),
-}));
 
 export default function AppScaffold() {
 
@@ -97,7 +94,8 @@ export default function AppScaffold() {
                 <Box component="footer">
                     <Typography variant="caption">
                         Data taken from <a
-                        href="https://docs.ficsit.app/refinedrd/latest/rp/buildings/modularpower/index.html">Modular Power
+                        href="https://docs.ficsit.app/refinedrd/latest/rp/buildings/modularpower/index.html">Modular
+                        Power
                         Documentation</a>
                     </Typography>
                 </Box>

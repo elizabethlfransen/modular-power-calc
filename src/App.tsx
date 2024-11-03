@@ -1,7 +1,5 @@
-
 import {createTheme, ThemeProvider} from "@mui/material";
 import {RouterProvider} from "./Router.tsx";
-import AppScaffold from "./components/AppScaffold.tsx";
 
 
 const theme = createTheme({
@@ -11,13 +9,11 @@ const theme = createTheme({
 })
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-        <RouterProvider>
-            <AppScaffold/>
-        </RouterProvider>
-    </ThemeProvider>
-  )
+    return (
+        <ThemeProvider theme={theme}>
+            <RouterProvider/>
+        </ThemeProvider>
+    )
 }
 
 export default App

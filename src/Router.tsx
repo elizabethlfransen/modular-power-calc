@@ -12,6 +12,7 @@ import Boilers from "./pages/Boilers.tsx";
 import Turbines from "./pages/Turbines.tsx";
 import Generators from "./pages/Generators.tsx";
 import Chimneys from "./pages/Chimneys.tsx";
+import AppScaffold from "./components/AppScaffold.tsx";
 
 type AppRouteBase = RouteObject;
 
@@ -39,35 +40,35 @@ export const routes: AppRoute[] = [
         category: "Calculators",
     },
     {
-        path: "/heaters",
+        path: "heaters",
         element: <Heaters/>,
         icon: <LocalFireDepartment/>,
         label: "Heaters",
         category: "Building Info",
     },
     {
-        path: "/boilers",
+        path: "boilers",
         element: <Boilers/>,
         icon: <TbChartBubbleFilled/>,
         label: "Boilers",
         category: "Building Info",
     },
     {
-        path: "/turbines",
+        path: "turbines",
         element: <Turbines/>,
         icon: <WindPower/>,
         label: "Turbines",
         category: "Building Info",
     },
     {
-        path: "/generators",
+        path: "generators",
         element: <Generators/>,
         icon: <Bolt/>,
         label: "Generators",
         category: "Building Info",
     },
     {
-        path: "/chimneys",
+        path: "chimneys",
         element: <Chimneys/>,
         icon: <Factory/>,
         label: "Chimneys",
@@ -75,8 +76,19 @@ export const routes: AppRoute[] = [
     },
 ];
 
-export const router = createBrowserRouter(routes, {
+
+export const categorizedRoutes = routeCategories.map(category => ({
+    title: category,
+    routes: routes.filter(route => route.category === category),
+}));
+
+export const router = createBrowserRouter([{
+    path: "/",
+    element: <AppScaffold/>,
+    children: routes
+}], {
     basename: import.meta.env.BASE_URL,
+
 });
 
 
