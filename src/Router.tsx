@@ -3,6 +3,7 @@ import {ReactNode} from "react";
 import {Bolt, Calculate, Factory, LocalFireDepartment, WindPower} from "@mui/icons-material";
 import {TbChartBubbleFilled} from "react-icons/tb";
 import Heaters from "./pages/Heaters.tsx";
+import Boilers from "./pages/Boilers.tsx";
 
 type AppRouteBase = RouteObject;
 
@@ -38,7 +39,7 @@ export const routes: AppRoute[] = [
     },
     {
         path: "/boilers",
-        element: <h1>Boilers</h1>,
+        element: <Boilers/>,
         icon: <TbChartBubbleFilled/>,
         label: "Boilers",
         category: "Building Info",

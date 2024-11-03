@@ -88,9 +88,18 @@ export default function AppScaffold({children}: AppScaffoldProps) {
                     </List>
                 </Box>
             </Drawer>
-            <Box component="main" sx={{flexGrow: 1, p: 3}}>
+            <Box sx={{flexGrow: 1, p: 3}}>
                 <Toolbar/>
-                {children}
+                <Box component="main">
+                    {children}
+                </Box>
+                <Box component="footer">
+                    <Typography variant="caption">
+                        Data taken from <a
+                        href="https://docs.ficsit.app/refinedrd/latest/rp/buildings/modularpower/index.html">Modular Power
+                        Documentation</a>
+                    </Typography>
+                </Box>
             </Box>
         </Box>
     );

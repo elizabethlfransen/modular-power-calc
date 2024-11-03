@@ -109,23 +109,14 @@ function HeaterDataDisplay({id, heaterData: {name, fuel, type}}: HeaterDataDispl
 
 export default function Heaters() {
     return (
-        <>
+        <Box>
+            <Typography variant="h2">Heaters</Typography>
             <Box>
-                <Typography variant="h2">Heaters</Typography>
-                <Box>
-                    {
-                        Object.entries(HEATERS)
-                            .map(([key, heaterData]) => <HeaterDataDisplay id={key} key={key} heaterData={heaterData}/>)
-                    }
-                </Box>
+                {
+                    Object.entries(HEATERS)
+                        .map(([key, heaterData]) => <HeaterDataDisplay id={key} key={key} heaterData={heaterData}/>)
+                }
             </Box>
-            <footer>
-                <Typography variant="caption">
-                    Data taken from <a
-                    href="https://docs.ficsit.app/refinedrd/latest/rp/buildings/modularpower/index.html">Modular Power
-                    Documentation</a>
-                </Typography>
-            </footer>
-        </>
+        </Box>
     );
 }
